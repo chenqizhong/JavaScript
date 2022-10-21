@@ -19,13 +19,35 @@ ohho[4]="50";
 document.write(ohho.length);
 */
 
-
+/*
 function add(qty1,qty2){
-    document.write(qty1 + qty2)
-    return  "喵喵";
+//   document.write(qty1 + qty2)
+    return  qty1 + qty2;
 }
 
-value=add(5,2)
-document.write(value);
+document.write( add(5,2) * 3);
+*/
+
+/*
+function max_num(qty1,qty2,qty3){
+    document.write(Math.max(qty1,qty2,qty3));
+}
+
+max_num(20,30,499);
+*/
 
 
+function max_num(qty1,qty2,qty3){
+    if(qty1>=qty2 && qty1 >= qty3){
+       return qty1;
+    }
+    else if(qty2>=qty1 && qty2 >= qty3){
+       return qty2;
+     }
+     else {
+       return qty3;
+     }
+}
+
+who=max_num(99,300,100);
+document.write(who);
