@@ -1,18 +1,113 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="UTF-8"/>
-  <head>
+<meta charset="UTF-8" />
+
+<head>
 
 </head>
-  <body>
+<style>
+  button.Try {
+    display: inline-block;
+    margin: auto;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  div.BorDer {
+    border: 1px solid black;
+    padding: 5px;
+    width: 10%;
+    height: 20px;
+    display: inline-block;
+  }
+
+  p {
+    display: inline;
+    font-size:10px ;
+  }
+</style>
+
+<body>
+  <div>
+    <button class="Try" onclick="tryAgain()">Try it</button>
+    <button class="Try" onclick="reset()">Reset</button>
+  </div>
+  <br>
+  <div>
+    <div class="BorDer">
+      <p id="lotteryNumber0">第一號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber1">第二號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber2">第三號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber3">第四號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber4">第五號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber5">第六號</p>
+    </div>
+    <div class="BorDer">
+      <p id="lotteryNumber6">特別號</p>
+    </div>
+  </div>
+  <script>
+
+
+    var takeNumbers = [];
+    var take1;
+    function tryAgain() {
+      if (takeNumbers.length < 7) {
+        while (takeNumbers.length < 7) {
+          take1 = Math.round(Math.random() * 49);
+          if (take1 !== takeNumbers[0] && take1 !== takeNumbers[1] && take1 !== takeNumbers[2] && take1 !== takeNumbers[3] && take1 !== takeNumbers[4] && take1 !== takeNumbers[5] && take1 !== takeNumbers[6] && take1 !== 0) {
+            takeNumbers.push(take1);
+          }
+        }
+        document.getElementById("lotteryNumber0").innerHTML = takeNumbers[0];
+        document.getElementById("lotteryNumber1").innerHTML = takeNumbers[1];
+        document.getElementById("lotteryNumber2").innerHTML = takeNumbers[2];
+        document.getElementById("lotteryNumber3").innerHTML = takeNumbers[3];
+        document.getElementById("lotteryNumber4").innerHTML = takeNumbers[4];
+        document.getElementById("lotteryNumber5").innerHTML = takeNumbers[5];
+        document.getElementById("lotteryNumber6").innerHTML = "特別號：" + takeNumbers[6];
+      }
+      else { alert("取號完成"); }
+    }
+    function reset() {
+      takeNumbers.splice(0, 7);
+      document.getElementById("lotteryNumber0").innerHTML = "第一號";
+      document.getElementById("lotteryNumber1").innerHTML = "第二號";
+      document.getElementById("lotteryNumber2").innerHTML = "第三號";
+      document.getElementById("lotteryNumber3").innerHTML = "第四號";
+      document.getElementById("lotteryNumber4").innerHTML = "第五號";
+      document.getElementById("lotteryNumber5").innerHTML = "第六號";
+      document.getElementById("lotteryNumber6").innerHTML = "特別號";
+    }
+  </script>
 
 
 
-    <script src="./js.js"></script>
+
+  <!-- <input type="button" name="number" id="number" onclick="anayNumber()" value="偏財運開獎號碼">
+<span class="a" id="number1">123</span>
+<span class="a" id="number2">123</span>
+<span class="a" id="number3">123</span>
+<span class="a" id="number4">123</span>
+<span class="a" id="number5">123</span>
+<span class="a" id="number6">123</span>
+<span>特別號</span>
+<span class="a" style="border: 1px solid red ;" id="danana7">123</span>  -->
+
+  <!--    <script src="./qty.js"></script> -
+    <script src="./password.js"></script> ->
 
   </body>
 </html>
-
-
-
-
